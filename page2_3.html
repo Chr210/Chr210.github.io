@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PORTFOLIO1</title>
+<link rel="stylesheet" href="./css/conf.css" type="text/css">
+</head>
+<body>
+<div id="wrapper">
+
+
+<header>
+    <a href="index.html" class="header-link">
+        <h1>Tomioka Chiharu</h1>
+    </a>
+</header>
+<nav>
+    <div class="visit">メニュー</div>
+    <ul>
+        <li id="m2"><a href="./index.html#wrapper">トップ</a></li>
+        <li id="m1"><a href="./index.html#profile">プロフィール</a></li>
+        <li id="m3"><a href="./index.html#hobby-skill">趣味・スキル</a></li>
+        <li id="m4"><a href="./index.html#portfolio">ポートフォリオ</a></li>
+    </ul>
+</nav>
+
+<div id="sikaku">
+<h2>ボランティア活動</h2>
+<h4>ボランティア活動についてまとめました。</h4>
+<ul>
+    <li>サイバーボランティア</li>
+    <p>愛知県警察から委託を受け、Xでのサイバーパトロールや、サイバー犯罪防止のための啓発活動を行っています。
+        2024年3月にはサイバー犯罪の防止に貢献したとして感謝状をいただきました。また2025年6月には詐欺サイトの通報数を競う大会で1位（4,426件）を獲得しました。</p>
+    <div id="gallery_volunteer">
+        <a href="images/volunteer.JPG" class="zoom">
+            <img src="images/volunteer.JPG" alt="Coyote" style="width: 500px; height: auto; margin-bottom: 15px;">
+        </a>
+    </div>
+    <li>学習支援教室のサポーター</li>
+    <p>愛知県瀬戸市から委託を受け、生活保護を受けている家庭の小学生から高校生に対して、勉強を教えたり相談に乗ったりして、彼らの可能性を広げるお手伝いをしています。</p>
+    <div id="gallery_volunteer">
+        <a href="images/miroku.jpeg" class="zoom">
+            <img src="images/miroku.jpeg" alt="Coyote" style="width: 500px; height: auto; margin-bottom: 15px;">
+        </a>
+    </div>
+</ul>
+</div>
+
+
+<footer>Copyright © Tomioka Chiharu All rights reserved.</footer>
+
+<script>//メニュー固定
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuHeight = document.querySelector('nav').offsetHeight;
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - menuHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body>
+
+
+
+
+<script src="./js/swiper.js"></script>
+<link href="./css/swiper.css" rel="stylesheet">
+<script>//スライドショーを動かせるようにする
+new Swiper(".swiper-container",{
+	loop:true,//ループする
+	autoplay:{delay:2000},//自動再生
+	effect:'flip',//回転するように写真切り替え
+	navigation:{
+		nextEl:".swiper-button-next",
+		prevEl:".swiper-button-prev"
+	}
+});
+//effect:'fade',フェードイン・アウト
+//effect:'cube',立方体のように回転
+//effect:'coverflow',カバーフローのように回転
+//effect:'flip',回転するように写真切り替え
+</script>
+
+<script src="./js/luminous.js"></script>
+<link href="./css/luminous.css" rel="stylesheet">
+<script>//画像を拡大表示する　24.34行目、その他の写真もaタグのhrefにリンク先を指定する 
+new Luminous(document.querySelector(".zoom"));
+new LuminousGallery(
+	document.querySelectorAll(".zoom"),
+	{arrowNavigation:true},
+	{caption:
+		function(alt){
+			return alt.querySelector("img").getAttribute("alt");
+		}
+	}
+);
+</script>
+</html>
