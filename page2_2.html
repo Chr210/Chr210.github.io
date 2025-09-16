@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PORTFOLIO1</title>
+<link rel="stylesheet" href="./css/conf.css" type="text/css">
+</head>
+<body>
+<div id="wrapper">
+
+
+<header>
+    <a href="index.html" class="header-link">
+        <h1>Tomioka Chiharu</h1>
+    </a>
+</header>
+<nav>
+    <ul>
+        <li id="m2"><a href="./index.html#wrapper">トップ</a></li>
+        <li id="m1"><a href="./index.html#profile">プロフィール</a></li>
+        <li id="m3"><a href="./index.html#hobby-skill">趣味・スキル</a></li>
+        <li id="m4"><a href="./index.html#portfolio">ポートフォリオ</a></li>
+    </ul>
+</nav>
+
+
+<div id="sikaku">
+<h2>受賞歴</h2>
+<ul>
+    <li>2021年7月　名古屋市交通局主催「市バス沿線フォトコンテスト〜千種区・昭和区編〜」ハッチー賞(学生賞) 受賞</li>
+    <li>2021年10月　災害について書いた作文が中日新聞に掲載</li>
+    <li>2021年11月　名古屋市交通局主催「市バス沿線フォトコンテスト〜緑区編〜」ハッチー賞(学生賞) 受賞</li>
+    <li>2021年12月　ロボカップジュニア 東海ブロック大会　レスキューライン　優勝</li>
+    <li>2022年8月　名古屋市交通局主催「市バス沿線フォトコンテスト〜守山区編〜」ハッチー賞(学生賞) 受賞</li>
+    <li>2022年8月　経済産業省後援 ジュニアマイスターゴールド　認定</li>
+    <li>2022年11月　第2回 亜細亜大学高校生アジアフォトコンテスト 亜大賞 受賞</li>
+    <li>2022年11月　愛知県私学協会 優良生徒表彰　受賞</li>
+    <li>2023年3月　名古屋市長賞　模範生徒として受賞</li>
+    <li>2023年12月　土木学会　安全問題討論会’23　デザイン部門　入選</li>
+    <li>2024年3月　愛知県警察よりサイバー犯罪被害の防止に貢献したことに関する感謝状</li>
+    <li>2024年12月　土木学会　安全問題討論会’24　デザイン部門　入選</li>
+    <li>2025年5月　ロボカップジャパンオープン　レスキューシミュレーションリーグ　計測自動制御学会賞　受賞</li>
+    <li>2025年6月　SCAM WEBSITE DISCOVER CHALLENGE　優勝（愛知県警察本部生活安全部サイバー局長賞　受賞）</li>
+    <li>2025年7月　ロボカップ世界大会　レスキューシミュレーションリーグ　準優勝</li>
+    <li>2025年8月　愛知県警察サイバーポリスチャレンジ（CTF）　優勝</li>
+</ul>
+</div>
+
+
+<footer>Copyright © Tomioka Chiharu All rights reserved.</footer>
+
+<script>//メニュー固定
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuHeight = document.querySelector('nav').offsetHeight;
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - menuHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body>
+
+
+
+
+<script src="./js/swiper.js"></script>
+<link href="./css/swiper.css" rel="stylesheet">
+<script>//スライドショーを動かせるようにする
+new Swiper(".swiper-container",{
+	loop:true,//ループする
+	autoplay:{delay:2000},//自動再生
+	effect:'flip',//回転するように写真切り替え
+	navigation:{
+		nextEl:".swiper-button-next",
+		prevEl:".swiper-button-prev"
+	}
+});
+//effect:'fade',フェードイン・アウト
+//effect:'cube',立方体のように回転
+//effect:'coverflow',カバーフローのように回転
+//effect:'flip',回転するように写真切り替え
+</script>
+
+<script src="./js/luminous.js"></script>
+<link href="./css/luminous.css" rel="stylesheet">
+<script>//画像を拡大表示する　24.34行目、その他の写真もaタグのhrefにリンク先を指定する 
+new Luminous(document.querySelector(".zoom"));
+new LuminousGallery(
+	document.querySelectorAll(".zoom"),
+	{arrowNavigation:true},
+	{caption:
+		function(alt){
+			return alt.querySelector("img").getAttribute("alt");
+		}
+	}
+);
+</script>
+</html>
