@@ -2,35 +2,29 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>PORTFOLIO1</title>
-<link rel="stylesheet" href="./css/conf.css" type="text/css">
+<title>趣味・スキル① | Tomioka Chiharu Portfolio</title>
+<link rel="stylesheet" href="css/conf.css" type="text/css">
 </head>
 <body>
-<div id="wrapper">
-
-
-<header>
-    <a href="index.html" class="header-link">
-        <h1>Tomioka Chiharu</h1>
-    </a>
-</header>
-<nav>
-    <ul>
-        <li id="m2"><a href="./index.html#wrapper">トップ</a></li>
-        <li id="m1"><a href="./index.html#profile">プロフィール</a></li>
-        <li id="m3"><a href="./index.html#hobby-skill">趣味・スキル</a></li>
-        <li id="m4"><a href="./index.html#portfolio">ポートフォリオ</a></li>
-    </ul>
-</nav>
-
-<div id="sikaku">
+<div id="fullscreen-top">
+    <video autoplay loop muted playsinline id="bg-video">
+      <source src="movie/chiiwa.mp4" type="video/mp4">
+    </video>
+    <nav class="menu-bar">
+        <a href="index.html">トップ</a>
+        <a href="profile.html">プロフィール</a>
+        <a href="hobby-skill.html" class="menu-hobby-skill active-menu">趣味<br>スキル</a>
+        <a href="page1.html">ポートフォリオ</a>
+    </nav>
+    <section class="news-section" style="max-width: 900px;">
+        <div id="sikaku">
 <h2>所持資格（取得年月・資格名）</h2>
     <ul>
             <li>2022年9月　 &nbsp;ITパスポート</li>
             <li>2024年9月　 &nbsp;第二種電気工事士</li>
-            <li>2022年1月　 &nbsp;Microsoft Office Specialist Excel 365&2019</li>
-            <li>2021年3月　 &nbsp;Microsoft Office Specialist Word 365&2019</li>
-            <li>2021年9月　 &nbsp;Microsoft Office Specialist PowerPoint 365&2019</li>
+            <li>2022年1月　 &nbsp;Microsoft Office Specialist<br>　　　　　　　 &nbsp;Excel 365&2019</li>
+            <li>2021年3月　 &nbsp;Microsoft Office Specialist<br>　　　　　　　 &nbsp;Word 365&2019</li>
+            <li>2021年9月　 &nbsp;Microsoft Office Specialist<br>　　　　　　　 &nbsp;PowerPoint 365&2019</li>
             <li>2023年4月　 &nbsp;防災士</li>
             <li>2022年12月　危険物取扱者乙種第1類</li>
             <li>2022年9月　 &nbsp;危険物取扱者乙種第2類</li>
@@ -48,78 +42,23 @@
             <li>2022年1月　 &nbsp;パソコン利用技術検定2級</li>
             <li>2020年10月　基礎製図検定</li>
             <li>2021年12月　色彩検定3級</li>
-            <li>2022年5月　 &nbsp;プロジェクトワイルドエデュケーター</li>
+            <li>2022年5月　 &nbsp;プロジェクトワイルド<br>　　　　　　　 &nbsp;エデュケーター</li>
             <li>2023年6月　 &nbsp;第三級アマチュア無線技士</li>
             <li>2021年4月　 &nbsp;ロボット検定2級</li>
             <li>2016年7月　 &nbsp;硬筆書写技能検定4級</li>
             <li>2016年12月　毛筆書写技能検定4級</li>
     </ul>
 </div>
-
-
+    </section>
+</div>
 <footer>Copyright © Tomioka Chiharu All rights reserved.</footer>
-
-<script>//メニュー固定
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuHeight = document.querySelector('nav').offsetHeight;
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - menuHeight;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
-</script>
-
-
-
-</body>
-
-
-
-
-<script src="./js/swiper.js"></script>
-<link href="./css/swiper.css" rel="stylesheet">
-<script>//スライドショーを動かせるようにする
-new Swiper(".swiper-container",{
-	loop:true,//ループする
-	autoplay:{delay:2000},//自動再生
-	effect:'flip',//回転するように写真切り替え
-	navigation:{
-		nextEl:".swiper-button-next",
-		prevEl:".swiper-button-prev"
-	}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var video = document.getElementById('bg-video');
+  if (video) {
+    video.playbackRate = 0.5;
+  }
 });
-//effect:'fade',フェードイン・アウト
-//effect:'cube',立方体のように回転
-//effect:'coverflow',カバーフローのように回転
-//effect:'flip',回転するように写真切り替え
 </script>
-
-<script src="./js/luminous.js"></script>
-<link href="./css/luminous.css" rel="stylesheet">
-<script>//画像を拡大表示する　24.34行目、その他の写真もaタグのhrefにリンク先を指定する 
-new Luminous(document.querySelector(".zoom"));
-new LuminousGallery(
-	document.querySelectorAll(".zoom"),
-	{arrowNavigation:true},
-	{caption:
-		function(alt){
-			return alt.querySelector("img").getAttribute("alt");
-		}
-	}
-);
-</script>
+</body>
 </html>
