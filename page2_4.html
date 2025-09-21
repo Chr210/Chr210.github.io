@@ -111,9 +111,22 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var video = document.getElementById('bg-video');
-  if (video) {
-    video.playbackRate = 0.5;
+  var sources = [];
+  for (var i = 1; i <= 12; i++) {
+    sources.push('movie1/chiiwa' + i + '.mp4');
   }
+  var current = 0;
+  function setVideoSource(idx) {
+    video.src = sources[idx];
+    video.load();
+    video.playbackRate = 0.7;
+    video.play();
+  }
+  setVideoSource(current);
+  video.addEventListener('ended', function() {
+    current = (current + 1) % sources.length;
+    setVideoSource(current);
+  });
 });
 </script>
 </body>

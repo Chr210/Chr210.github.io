@@ -7,9 +7,8 @@
 </head>
 <body>
 <div id="fullscreen-top">
-  <video id="bg-video" src="./movie/chiiwa.mp4" autoplay loop muted playsinline></video>
-
-  <nav class="menu-bar">
+    <div id="video-container"></div>
+    <nav class="menu-bar">
         <a href="index.html">トップ</a>
         <a href="profile.html">プロフィール</a>
         <a href="hobby-skill.html" class="menu-hobby-skill active-menu">趣味<br>スキル</a>
@@ -62,6 +61,50 @@
             });
         });
     });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var container = document.getElementById('video-container');
+  var sources = [
+    'movie1/chiiwa1.mp4',
+    'movie1/chiiwa2.mp4',
+    'movie1/chiiwa3.mp4',
+    'movie1/chiiwa4.mp4',
+    'movie1/chiiwa5.mp4',
+    'movie1/chiiwa6.mp4',
+    'movie1/chiiwa7.mp4',
+    'movie1/chiiwa8.mp4',
+    'movie1/chiiwa9.mp4',
+    'movie1/chiiwa10.mp4',
+    'movie1/chiiwa11.mp4',
+    'movie1/chiiwa12.mp4'
+  ];
+  var current = 0;
+  function setVideoSource(idx) {
+    container.innerHTML = '';
+    var video = document.createElement('video');
+    video.autoplay = true;
+    video.loop = false;
+    video.muted = true;
+    video.playsInline = true;
+    video.id = 'bg-video';
+    video.style.width = '100vw';
+    video.style.height = '100vh';
+    var source = document.createElement('source');
+    source.src = sources[idx];
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    container.appendChild(video);
+    video.playbackRate = 0.7;
+    video.play();
+    video.addEventListener('ended', function() {
+      current = (current + 1) % sources.length;
+      setVideoSource(current);
+    });
+  }
+  setVideoSource(current);
+});
 </script>
 
 
