@@ -130,7 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
     video.appendChild(source);
     container.appendChild(video);
     video.playbackRate = 0.7;
-    video.play();
+    video.oncanplay = function() {
+      video.play();
+    };
     video.addEventListener('ended', function() {
       current = (current + 1) % sources.length;
       setVideoSource(current);
