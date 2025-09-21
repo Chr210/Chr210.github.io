@@ -526,6 +526,18 @@ table td:last-child a:hover {
     padding-left: 1em;
     position: relative;
 }
+
+/* ニュースリスト左揃え */
+.news-list {
+  padding-left: 0;
+}
+.news-list li {
+  text-align: left;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
 .news-list li:before {
     content: "📰";
     position: absolute;
@@ -569,8 +581,8 @@ table td:last-child a:hover {
   text-decoration: none;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-  min-width: 220px;
-  min-height: 200px;
+  width: 320px;
+  height: 200px;
 }
 .skill-link-card:hover {
   background: #007bff;
@@ -723,4 +735,63 @@ table td:last-child a:hover {
 .portfolio-modal-close:hover {
   color: #007bff;
   transform: scale(1.2);
+}
+
+/* 画像モーダル用スタイル */
+.img-modal {
+  display: none; /* 初期は非表示 */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.img-modal-content {
+  margin: 0 auto;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+  animation: modal-zoom 0.3s;
+}
+@keyframes modal-zoom {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.img-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  color: #fff;
+  font-size: 2.8em;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 2px 8px #000;
+  z-index: 2100;
+}
+.img-modal-close:hover {
+  color: #ff4081;
+}
+
+/* 画像モーダルの作品名表示 */
+.img-modal-title {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 2.2em;
+  font-weight: bold;
+  text-shadow: 0 2px 12px #000, 0 0 8px #007bff;
+  background: rgba(0,0,0,0.32);
+  padding: 12px 32px;
+  border
 }

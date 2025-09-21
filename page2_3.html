@@ -14,10 +14,10 @@
         <a href="hobby-skill.html" class="menu-hobby-skill active-menu">趣味<br>スキル</a>
         <a href="page1.html">ポートフォリオ</a>
     </nav>
-  <div class="section-box">
+  <div class="section-box" style="width: 800px;">
     <h2>ボランティア活動</h2>
     <ul>
-        <li class="volunteer-title">サイバーボランティア</li>
+        <li class="volunteer-title">①サイバーボランティア</li>
         <p>愛知県警察から委託を受け、Xでのサイバーパトロールや、サイバー犯罪防止のための啓発活動を行っています。
             2024年3月にはサイバー犯罪の防止に貢献したとして感謝状をいただきました。また2025年6月には詐欺サイトの通報数を競う大会で1位（4,426件）を獲得しました。</p>
         <div id="gallery_volunteer">
@@ -25,17 +25,20 @@
                 <img src="images/volunteer.JPG" alt="Coyote" style="width: 500px; height: auto; margin-bottom: 15px;">
             </a>
         </div>
-        <li class="volunteer-title">学習支援教室のサポーター</li>
+        <li class="volunteer-title">②学習支援教室のサポーター</li>
         <p>愛知県瀬戸市から委託を受け、生活保護を受けている家庭の小学生から高校生に対して、勉強を教えたり相談に乗ったりして、彼らの可能性を広げるお手伝いをしています。</p>
-        <div id="gallery_volunteer">
-            <a href="images/miroku.jpeg" class="zoom">
-                <img src="images/miroku.jpeg" alt="Coyote" style="width: 500px; height: auto; margin-bottom: 15px;">
-            </a>
-        </div>
     </ul>
   </div>
   <footer>Copyright © Tomioka Chiharu All rights reserved.</footer>
 </div>
+
+
+<!-- 画像モーダル -->
+    <div id="img-modal" class="img-modal">
+      <span class="img-modal-close">&times;</span>
+      <img class="img-modal-content" id="img-modal-img" src="" alt="拡大画像">
+      <div id="img-modal-title" class="img-modal-title"></div>
+    </div>
 
 
 <script>//メニュー固定
@@ -113,33 +116,45 @@ document.addEventListener('DOMContentLoaded', function() {
     'movie1/chiiwa11.mp4',
     'movie1/chiiwa12.mp4'
   ];
+  var videos = [];
   var current = 0;
-  function setVideoSource(idx) {
-    container.innerHTML = '';
+  // 事前にvideo要素を生成
+  for (var i = 0; i < sources.length; i++) {
     var video = document.createElement('video');
-    video.autoplay = true;
+    video.src = sources[i];
+    video.autoplay = false;
     video.loop = false;
     video.muted = true;
     video.playsInline = true;
-    video.id = 'bg-video';
+    video.preload = 'auto';
+    video.id = 'bg-video-' + (i+1);
     video.style.width = '100vw';
     video.style.height = '100vh';
-    var source = document.createElement('source');
-    source.src = sources[idx];
-    source.type = 'video/mp4';
-    video.appendChild(source);
-    container.appendChild(video);
+    video.style.position = 'fixed';
+    video.style.top = '0';
+    video.style.left = '0';
+    video.style.zIndex = '0';
+    video.style.display = 'none';
+    video.style.objectFit = 'cover';
     video.playbackRate = 0.7;
-    video.oncanplay = function() {
-      video.play();
-    };
-    video.addEventListener('ended', function() {
-      current = (current + 1) % sources.length;
-      setVideoSource(current);
-    });
+    videos.push(video);
+    container.appendChild(video);
   }
-  setVideoSource(current);
+  // 最初の動画を表示・再生
+  function playVideo(idx) {
+    videos.forEach(function(v, i) {
+      v.style.display = (i === idx) ? 'block' : 'none';
+      if (i !== idx) { v.pause(); v.currentTime = 0; }
+    });
+    videos[idx].play();
+    videos[idx].onended = function() {
+      current = (idx + 1) % videos.length;
+      playVideo(current);
+    };
+  }
+  playVideo(current);
 });
 </script>
+<script src="js/modal.js"></script>
 </body>
 </html>

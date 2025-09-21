@@ -14,7 +14,7 @@
         <a href="hobby-skill.html" class="menu-hobby-skill active-menu">趣味<br>スキル</a>
         <a href="page1.html">ポートフォリオ</a>
     </nav>
-    <section class="news-section" style="max-width: 600px;">
+    <section class="news-section" style="width: 800px;">
         <h2>趣味・スキル</h2>
         <div class="skill-link-grid">
           <a href="page2_1.html" class="skill-link-card">🎓<br>所持資格</a>
@@ -42,32 +42,43 @@ document.addEventListener('DOMContentLoaded', function() {
     'movie1/chiiwa11.mp4',
     'movie1/chiiwa12.mp4'
   ];
+  var videos = [];
   var current = 0;
-  function setVideoSource(idx) {
-    container.innerHTML = '';
+  // 事前にvideo要素を生成
+  for (var i = 0; i < sources.length; i++) {
     var video = document.createElement('video');
-    video.autoplay = true;
+    video.src = sources[i];
+    video.autoplay = false;
     video.loop = false;
     video.muted = true;
     video.playsInline = true;
-    video.id = 'bg-video';
+    video.preload = 'auto';
+    video.id = 'bg-video-' + (i+1);
     video.style.width = '100vw';
     video.style.height = '100vh';
-    var source = document.createElement('source');
-    source.src = sources[idx];
-    source.type = 'video/mp4';
-    video.appendChild(source);
-    container.appendChild(video);
+    video.style.position = 'fixed';
+    video.style.top = '0';
+    video.style.left = '0';
+    video.style.zIndex = '0';
+    video.style.display = 'none';
+    video.style.objectFit = 'cover';
     video.playbackRate = 0.7;
-    video.oncanplay = function() {
-      video.play();
-    };
-    video.addEventListener('ended', function() {
-      current = (current + 1) % sources.length;
-      setVideoSource(current);
-    });
+    videos.push(video);
+    container.appendChild(video);
   }
-  setVideoSource(current);
+  // 最初の動画を表示・再生
+  function playVideo(idx) {
+    videos.forEach(function(v, i) {
+      v.style.display = (i === idx) ? 'block' : 'none';
+      if (i !== idx) { v.pause(); v.currentTime = 0; }
+    });
+    videos[idx].play();
+    videos[idx].onended = function() {
+      current = (idx + 1) % videos.length;
+      playVideo(current);
+    };
+  }
+  playVideo(current);
 });
 </script>
 </body>
