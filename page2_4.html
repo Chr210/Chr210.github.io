@@ -6,11 +6,6 @@
 <link rel="stylesheet" href="css/conf.css" type="text/css">
 </head>
 <body>
-<div id="video-container">
-      <video autoplay loop muted playsinline id="bg-video" style="width:100vw;height:100vh;object-fit:cover;position:fixed;top:0;left:0;z-index:0;">
-        <source src="https://drive.google.com/uc?export=preview&id=1CXk9FpQqgEITChUD4wzL5vem5-1tlw-x" type="video/mp4">
-      </video>
-    </div>
 <div id="fullscreen-top">
     <nav class="menu-bar">
         <a href="index.html">トップ</a>
@@ -116,83 +111,6 @@
   <div id="img-modal-title" class="img-modal-title"></div>
 </div>
 <footer>Copyright © Tomioka Chiharu All rights reserved.</footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var video = document.getElementById('bg-video');
-  var sources = [];
-  for (var i = 1; i <= 12; i++) {
-    sources.push('movie1/chiiwa' + i + '.mp4');
-  }
-  var current = 0;
-  function setVideoSource(idx) {
-    video.src = sources[idx];
-    video.load();
-    video.playbackRate = 0.7;
-    video.play();
-  }
-  setVideoSource(current);
-  video.addEventListener('ended', function() {
-    current = (current + 1) % sources.length;
-    setVideoSource(current);
-  });
-});
-</script>
 <script src="js/modal.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var container = document.getElementById('video-container');
-  var sources = [
-    'movie1/chiiwa1.mp4',
-    'movie1/chiiwa2.mp4',
-    'movie1/chiiwa3.mp4',
-    'movie1/chiiwa4.mp4',
-    'movie1/chiiwa5.mp4',
-    'movie1/chiiwa6.mp4',
-    'movie1/chiiwa7.mp4',
-    'movie1/chiiwa8.mp4',
-    'movie1/chiiwa9.mp4',
-    'movie1/chiiwa10.mp4',
-    'movie1/chiiwa11.mp4',
-    'movie1/chiiwa12.mp4'
-  ];
-  var videos = [];
-  var current = 0;
-  // 事前にvideo要素を生成
-  for (var i = 0; i < sources.length; i++) {
-    var video = document.createElement('video');
-    video.src = sources[i];
-    video.autoplay = false;
-    video.loop = false;
-    video.muted = true;
-    video.playsInline = true;
-    video.preload = 'auto';
-    video.id = 'bg-video-' + (i+1);
-    video.style.width = '100vw';
-    video.style.height = '100vh';
-    video.style.position = 'fixed';
-    video.style.top = '0';
-    video.style.left = '0';
-    video.style.zIndex = '0';
-    video.style.display = 'none';
-    video.style.objectFit = 'cover';
-    video.playbackRate = 0.7;
-    videos.push(video);
-    container.appendChild(video);
-  }
-  // 最初の動画を表示・再生
-  function playVideo(idx) {
-    videos.forEach(function(v, i) {
-      v.style.display = (i === idx) ? 'block' : 'none';
-      if (i !== idx) { v.pause(); v.currentTime = 0; }
-    });
-    videos[idx].play();
-    videos[idx].onended = function() {
-      current = (idx + 1) % videos.length;
-      playVideo(current);
-    };
-  }
-  playVideo(current);
-});
-</script>
 </body>
 </html>

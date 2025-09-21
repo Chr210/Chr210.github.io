@@ -11,7 +11,8 @@ body, html {
 }
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9; /* 明るい背景色 */
+    background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+    animation: gradient-move 8s ease-in-out infinite alternate;
     color: #333; /* 落ち着いた文字色 */
     margin: 0;
     padding: 0;
@@ -83,7 +84,6 @@ nav ul li a:hover {
     font-weight: bold;
     box-shadow: 0 2px 12px rgba(0,0,0,0.18);
     border: 2px solid #fff;
-    pointer-events: none;
 }
 
 #gallery {
@@ -778,6 +778,7 @@ table td:last-child a:hover {
   border-radius: 0;
   box-shadow: none;
   animation: modal-zoom 0.3s;
+  opacity: 1 !important; /* 画像モーダル拡大画像の半透明防止 */
 }
 @keyframes modal-zoom {
   from { transform: scale(0.8); opacity: 0; }
@@ -816,7 +817,7 @@ table td:last-child a:hover {
 /* 受賞歴の受賞内容の文字サイズアップ */
 .section-box ul li {
   font-size: 1.4em;
-  font-weight: 500;
+  font-weight: 500px;
 }
 .section-box ul li .award-date {
   font-size: 1.1em;
@@ -824,4 +825,9 @@ table td:last-child a:hover {
 }
 .section-box ul li br + text, .section-box ul li br + span {
   font-size: 1.4em;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
