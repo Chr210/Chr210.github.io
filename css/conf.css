@@ -358,6 +358,8 @@ table td:last-child a:hover {
     white-space: normal;
     max-width: 1200px;
     margin: 0 auto;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 #sikaku ul p {
     text-align: left;
@@ -591,12 +593,27 @@ table td:last-child a:hover {
   box-shadow: 0 6px 24px rgba(0,123,255,0.18);
 }
 
+/* 趣味・スキルメニューの絵文字中央揃え */
+.skill-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6em;
+  text-align: center;
+}
+.skill-link-card::first-line {
+  text-align: center;
+}
+.skill-link-card {
+  line-height: 1.4;
+}
+
 .volunteer-title {
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.9em !important;
+  font-weight: bold !important;
   margin-top: 24px;
   margin-bottom: 8px;
-  color: #222;
 }
 
 .award-date {
@@ -794,4 +811,17 @@ table td:last-child a:hover {
   background: rgba(0,0,0,0.32);
   padding: 12px 32px;
   border
+}
+
+/* 受賞歴の受賞内容の文字サイズアップ */
+.section-box ul li {
+  font-size: 1.4em;
+  font-weight: 500;
+}
+.section-box ul li .award-date {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.section-box ul li br + text, .section-box ul li br + span {
+  font-size: 1.4em;
 }
