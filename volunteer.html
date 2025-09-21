@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PORTFOLIO1</title>
+<link rel="stylesheet" href="./css/conf.css" type="text/css">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<div id="fullscreen-top" style="flex: 1;">
+    <nav class="menu-bar">
+        <a href="index.html">トップ</a>
+        <a href="profile.html">プロフィール</a>
+        <a href="hobby-skill.html" class="menu-hobby-skill active-menu">趣味<br>スキル</a>
+        <a href="portfolio.html">ポートフォリオ</a>
+    </nav>
+  <div class="section-box" style="width: 800px; margin-bottom: 48px;">
+    <h2>ボランティア活動</h2>
+    <ul>
+        <li class="volunteer-title">①サイバーボランティア</li>
+        <p>愛知県警察から委託を受け、Xでのサイバーパトロールや、サイバー犯罪防止のための啓発活動を行っています。
+            2024年3月にはサイバー犯罪の防止に貢献したとして感謝状をいただきました。また2025年6月には詐欺サイトの通報数を競う大会で1位（4,426件）を獲得しました。</p>
+        <div id="gallery_volunteer">
+            <a href="images/volunteer.JPG" class="zoom">
+                <img src="images/volunteer.JPG" alt="Coyote" style="width: 500px; height: auto; margin-bottom: 15px;">
+            </a>
+        </div>
+        <!--次のボランティア活動の前に改行-->
+        <br>
+        <li class="volunteer-title">②学習支援教室のサポーター</li>
+        <p>愛知県瀬戸市から委託を受け、生活保護を受けている家庭の小学生から高校生に対して、勉強を教えたり相談に乗ったりして、彼らの可能性を広げるお手伝いをしています。</p>
+    </ul>
+  </div>
+</div>
+<!-- 画像モーダル（ポートフォリオと同じデザイン） -->
+<div id="portfolio-modal" class="portfolio-modal-overlay" style="display:none;">
+  <div class="portfolio-modal-content">
+    <span class="portfolio-modal-close">×</span>
+    <img id="portfolio-modal-img" src="" alt="拡大画像" class="portfolio-modal-img" />
+  </div>
+</div>
+<div class="back-hobby-btn-wrapper" style="text-align:center; margin-bottom:8px;">
+  <a href="hobby-skill.html" class="back-hobby-btn" style="display:inline-block;margin-bottom:12px;padding:12px 32px;background:#007bff;color:#fff;border-radius:8px;text-decoration:none;font-size:1.2em;box-shadow:0 2px 8px rgba(0,0,0,0.12);transition:background 0.2s;">趣味・スキルページへ戻る</a>
+</div>
+<footer>Copyright © Tomioka Chiharu All rights reserved.</footer>
+<script src="js/modal.js"></script>
+<script>
+// ボランティア画像クリックでポートフォリオ風モーダル表示
+const volunteerImgs = document.querySelectorAll('#gallery_volunteer img');
+volunteerImgs.forEach(function(img) {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', function(e) {
+    e.preventDefault();
+    const modal = document.getElementById('portfolio-modal');
+    const modalImg = document.getElementById('portfolio-modal-img');
+    modalImg.src = img.src;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+});
+// ×ボタンで閉じる
+const closeBtn = document.querySelector('.portfolio-modal-close');
+if (closeBtn) {
+  closeBtn.addEventListener('click', function() {
+    const modal = document.getElementById('portfolio-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  });
+}
+// モーダル背景クリックで閉じる
+const modal = document.getElementById('portfolio-modal');
+if (modal) {
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  });
+}
+</script>
+</body>
+</html>
