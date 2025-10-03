@@ -5,7 +5,7 @@
 <title>ポートフォリオ | Tomioka Chiharu Portfolio</title>
 <link rel="stylesheet" href="css/conf.css" type="text/css">
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body style="display: flex; flex-direction: column; min-height: 96vh;">
 <div id="fullscreen-top" style="flex: 1;">
     <nav class="menu-bar">
         <a href="index.html">トップ</a>
@@ -13,106 +13,158 @@
         <a href="hobby-skill.html" class="menu-hobby-skill">趣味<br>スキル</a>
         <a href="portfolio.html" class="active-menu">ポートフォリオ</a>
     </nav>
-    <section class="news-section" style="width: 800px; margin-bottom: 48px;">
+    <section class="news-section">
         <h2>ポートフォリオ</h2>
         <div style="font-size:1.2em;line-height:1.7;">
             <!-- ここに作品ギャラリーを表示（例） -->
+            <div class="portfolio-category-menu" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:32px;">
+              <button class="category-btn active" data-category="all">全て</button>
+              <button class="category-btn" data-category="Poster Design">Poster Design</button>
+              <button class="category-btn" data-category="Package Design">Package Design</button>
+              <button class="category-btn" data-category="Pictogram">Pictogram</button>
+              <button class="category-btn" data-category="2DCG">2DCG</button>
+              <button class="category-btn" data-category="3DCG">3DCG</button>
+              <button class="category-btn" data-category="Drawing">Drawing</button>
+              <button class="category-btn" data-category="Robot">Robot</button>
+              <button class="category-btn" data-category="CG Programming">CG Programming</button>
+              <button class="category-btn" data-category="Image Processing Programming">Image Processing Programming</button>
+            </div>
             <div id="gallery" class="portfolio-gallery">
-              <div class="portfolio-item" data-id="1">
+              <div class="portfolio-item" data-id="1" data-category="Pictogram">
                 <img src="photo/1.jpg" alt="防災ピクト" class="portfolio-img" />
                 <h3 class="portfolio-title">防災ピクト</h3>
               </div>
-              <div class="portfolio-item" data-id="2">
+              <div class="portfolio-item" data-id="2" data-category="Poster Design">
                 <img src="photo/2.jpg" alt="防災ポスター" class="portfolio-img" />
                 <h3 class="portfolio-title">防災ポスター</h3>
               </div>
-              <div class="portfolio-item" data-id="3">
+              <div class="portfolio-item" data-id="3" data-category="Poster Design">
                 <img src="photo/3.jpg" alt="メンバー募集" class="portfolio-img" />
                 <h3 class="portfolio-title">メンバー募集</h3>
               </div>
-              <div class="portfolio-item" data-id="4">
-                <img src="photo/4.jpg" alt="ポッキー" class="portfolio-img" />
-                <h3 class="portfolio-title">ポッキー</h3>
+              <div class="portfolio-item" data-id="4" data-category="Package Design">
+                <img src="photo/4.jpg" alt="ポッキーはちみつレモン味" class="portfolio-img" />
+                <h3 class="portfolio-title">ポッキー　はちみつレモン味</h3>
               </div>
-              <div class="portfolio-item" data-id="5">
+              <div class="portfolio-item" data-id="5" data-category="Pictogram">
                 <img src="photo/5.jpg" alt="トイレのピクトグラム" class="portfolio-img" />
                 <h3 class="portfolio-title">トイレのピクトグラム</h3>
               </div>
-              <div class="portfolio-item" data-id="6">
+              <div class="portfolio-item" data-id="6" data-category="Poster Design">
                 <img src="photo/6.jpg" alt="高校紹介" class="portfolio-img" />
                 <h3 class="portfolio-title">高校紹介</h3>
               </div>
-              <div class="portfolio-item" data-id="7">
+              <div class="portfolio-item" data-id="7" data-category="2DCG">
                 <img src="photo/7.jpg" alt="アニマルロゴ" class="portfolio-img" />
                 <h3 class="portfolio-title">アニマルロゴ</h3>
               </div>
-              <div class="portfolio-item" data-id="8">
+              <div class="portfolio-item" data-id="8" data-category="2DCG">
                 <img src="photo/8.jpg" alt="可視光線" class="portfolio-img" />
                 <h3 class="portfolio-title">可視光線</h3>
               </div>
-              <div class="portfolio-item" data-id="9">
+              <div class="portfolio-item" data-id="9" data-category="2DCG">
                 <img src="photo/9.jpg" alt="加法混色" class="portfolio-img" />
                 <h3 class="portfolio-title">加法混色</h3>
               </div>
-              <div class="portfolio-item" data-id="10">
+              <div class="portfolio-item" data-id="10" data-category="2DCG">
                 <img src="photo/10.jpg" alt="減法混色" class="portfolio-img" />
                 <h3 class="portfolio-title">減法混色</h3>
               </div>
-              <div class="portfolio-item" data-id="11">
+              <div class="portfolio-item" data-id="11" data-category="CG Programming">
                 <img src="photo/11.jpg" alt="花火" class="portfolio-img" />
                 <h3 class="portfolio-title">花火</h3>
               </div>
-              <div class="portfolio-item" data-id="12">
-                <img src="photo/12.jpg" alt="名刺" class="portfolio-img" />
-                <h3 class="portfolio-title">名刺</h3>
+              <div class="portfolio-item" data-id="12" data-category="2DCG">
+                <img src="photo/12.jpg" alt="2023名刺" class="portfolio-img" />
+                <h3 class="portfolio-title">2023名刺</h3>
               </div>
-              <div class="portfolio-item" data-id="13">
+              <div class="portfolio-item" data-id="13" data-category="Poster Design">
                 <img src="photo/13.jpg" alt="工科展2023" class="portfolio-img" />
                 <h3 class="portfolio-title">工科展2023</h3>
               </div>
-              <div class="portfolio-item" data-id="14">
+              <div class="portfolio-item" data-id="14" data-category="CG Programming">
                 <img src="photo/14.jpg" alt="立体図形" class="portfolio-img" />
                 <h3 class="portfolio-title">立体図形</h3>
               </div>
-              <div class="portfolio-item" data-id="15">
+              <div class="portfolio-item" data-id="15" data-category="Drawing">
                 <img src="photo/15.jpg" alt="キャラクター" class="portfolio-img" />
                 <h3 class="portfolio-title">キャラクター</h3>
               </div>
-              <div class="portfolio-item" data-id="16">
+              <div class="portfolio-item" data-id="16" data-category="3DCG">
                 <img src="photo/16.jpg" alt="魚" class="portfolio-img" />
                 <h3 class="portfolio-title">魚</h3>
               </div>
-              <div class="portfolio-item" data-id="17">
+              <div class="portfolio-item" data-id="17" data-category="3DCG">
                 <img src="photo/17.jpg" alt="テクスチャマッピング" class="portfolio-img" />
                 <h3 class="portfolio-title">テクスチャマッピング</h3>
               </div>
-              <div class="portfolio-item" data-id="18">
+              <div class="portfolio-item" data-id="18" data-category="3DCG">
                 <img src="photo/18.jpg" alt="教室の椅子" class="portfolio-img" />
                 <h3 class="portfolio-title">教室の椅子</h3>
               </div>
-              <div class="portfolio-item" data-id="19">
+              <div class="portfolio-item" data-id="19" data-category="3DCG">
                 <img src="photo/19.jpg" alt="教室" class="portfolio-img" />
                 <h3 class="portfolio-title">教室</h3>
               </div>
-              <div class="portfolio-item" data-id="20">
+              <div class="portfolio-item" data-id="20" data-category="Drawing">
                 <img src="photo/20.jpg" alt="蛇口のデッサン" class="portfolio-img" />
                 <h3 class="portfolio-title">蛇口のデッサン</h3>
               </div>
-              <div class="portfolio-item" data-id="21">
+              <div class="portfolio-item" data-id="21" data-category="Poster Design">
                 <img src="photo/21.jpg" alt="ボランティア募集チラシ" class="portfolio-img" />
                 <h3 class="portfolio-title">ボランティア募集チラシ</h3>
               </div>
-              <div class="portfolio-item" data-id="22">
+              <div class="portfolio-item" data-id="22" data-category="2DCG">
                 <img src="photo/22.jpg" alt="パタパタくん" class="portfolio-img" />
                 <h3 class="portfolio-title">パタパタくん</h3>
               </div>
-              <div class="portfolio-item" data-id="23">
+              <div class="portfolio-item" data-id="29" data-category="2DCG">
+                <img src="photo/29.jpg" alt="パタパタくんの作り方" class="portfolio-img" />
+                <h3 class="portfolio-title">パタパタくんの作り方</h3>
+              </div>
+              <div class="portfolio-item" data-id="23" data-category="Poster Design">
                 <img src="photo/23.jpg" alt="工科展2024" class="portfolio-img" />
                 <h3 class="portfolio-title">工科展2024</h3>
               </div>
-              <div class="portfolio-item" data-id="24">
+              <div class="portfolio-item" data-id="24" data-category="CG Programming">
                 <img src="photo/24.jpg" alt="アンパンマン" class="portfolio-img" />
                 <h3 class="portfolio-title">アンパンマン</h3>
+              </div>
+              <div class="portfolio-item" data-id="25" data-category="Package Design">
+                <img src="photo/25.jpg" alt="ポッキーねるねるねるね味" class="portfolio-img" />
+                <h3 class="portfolio-title">ポッキー　ねるねるねるね味</h3>
+              </div>
+              <div class="portfolio-item" data-id="26" data-category="Package Design">
+                <img src="photo/26.jpg" alt="ポッキーピラフ味" class="portfolio-img" />
+                <h3 class="portfolio-title">ポッキー　ピラフ味</h3>
+              </div>
+              <div class="portfolio-item" data-id="27" data-category="2DCG">
+                <img src="photo/27.jpg" alt="2024名刺" class="portfolio-img" />
+                <h3 class="portfolio-title">2024名刺</h3>
+              </div>
+              <div class="portfolio-item" data-id="28" data-category="2DCG">
+                <img src="photo/28.jpg" alt="2025名刺" class="portfolio-img" />
+                <h3 class="portfolio-title">2025名刺</h3>
+              </div>
+              <div class="portfolio-item" data-id="30" data-category="Robot">
+                <img src="photo/30.jpg" alt="FLL CHALLENGE 2020-2021 ロボット" class="portfolio-img" />
+                <h3 class="portfolio-title">FLL CHALLENGE 2020-2021 ロボット</h3>
+              </div>
+              <div class="portfolio-item" data-id="31" data-category="Robot">
+                <img src="photo/31.jpg" alt="ロボカップジュニア全国大会 ロボット" class="portfolio-img" />
+                <h3 class="portfolio-title">ロボカップジュニア全国大会 ロボット</h3>
+              </div>
+              <div class="portfolio-item" data-id="32" data-category="Image Processing Programming">
+                <img src="photo/32.jpg" alt="手の赤みを取る" class="portfolio-img" />
+                <h3 class="portfolio-title">手の赤みを取る</h3>
+              </div>
+              <div class="portfolio-item" data-id="33" data-category="Image Processing Programming">
+                <img src="photo/33.jpg" alt="宝石の検出" class="portfolio-img" />
+                <h3 class="portfolio-title">宝石の検出</h3>
+              </div>
+              <div class="portfolio-item" data-id="34" data-category="Image Processing Programming">
+                <img src="photo/34.jpg" alt="魚の検出" class="portfolio-img" />
+                <h3 class="portfolio-title">魚の検出</h3>
               </div>
             </div>
             <!-- モーダル構造 -->
@@ -171,7 +223,7 @@ const works = [
   {
     id: 4,
     img: 'photo/4.jpg',
-    title: 'ポッキー',
+    title: 'ポッキーはちみつレモン味',
     desc: 'ポッキーの新しい味を考え、パッケージをデザインした。「はちみつレモン味 極太」を新しく考えた。',
     info: [
       '完成日: 2022/5',
@@ -267,7 +319,7 @@ const works = [
   {
     id: 12,
     img: 'photo/12.jpg',
-    title: '名刺',
+    title: '2023名刺',
     desc: 'ビジネス用とプライベート用の名刺を作成した。ビジネス用は簡潔に分かりやすく、プライバート用はスキルなども含めて作成した。',
     info: [
       '完成日: 2023/6',
@@ -397,6 +449,18 @@ const works = [
     ]
   },
   {
+    id: 29,
+    img: 'photo/29.jpg',
+    title: 'パタパタくんの作り方',
+    desc: '防災食の作り方を紹介したレシピ本「パタパタくん」の作り方を説明したポスター。',
+    info: [
+      '完成日: 2024/6',
+      '制作期間: 3時間',
+      '作成人数: 2人',
+      '使用アプリ: Illustrator'
+    ]
+  },
+  {
     id: 23,
     img: 'photo/23.jpg',
     title: '工科展2024',
@@ -419,14 +483,126 @@ const works = [
       '作成人数: 1人',
       '使用アプリ: VScode'
     ]
-  }
+  },
+  {
+    id: 25,
+    img: 'photo/25.jpg',
+    title: 'ポッキーねるねるねるね味',
+    desc: 'ポッキーの新しい味を考え、パッケージをデザインした。「ねるねるねるね味」を新しく考えた。',
+    info: [
+      '完成日: 2022/6',
+      '制作期間: 4時間',
+      '作成人数: 1人',
+      '使用アプリ: Illustrator'
+    ]
+  },
+  {
+    id: 26,
+    img: 'photo/26.jpg',
+    title: 'ポッキーピラフ味',
+    desc: 'ポッキーの新しい味を考え、パッケージをデザインした。「ピラフ味」を新しく考えた。',
+    info: [
+      '完成日: 2022/7',
+      '制作期間: 4時間',
+        '作成人数: 1人',
+        '使用アプリ: Illustrator'
+      ]
+  },
+  {
+    id: 27,
+    img: 'photo/27.jpg',
+    title: '2024名刺',
+    desc: 'プライベート用の名刺をデザインした。',
+    info: [
+      '完成日: 2024/6',
+      '制作期間: 6時間',
+      '作成人数: 1人',
+      '使用アプリ: Illustrator'
+    ]
+  },
+  {
+    id: 28,
+    img: 'photo/28.jpg',
+    title: '2025名刺',
+    desc: '就職活動用の名刺をデザインした。裏にはこのポートフォリオサイトのQRコードを載せた。',
+    info: [
+      '完成日: 2025/8',
+      '制作期間: 3時間',
+      '作成人数: 1人',
+      '使用アプリ: Illustrator'
+    ]
+  },
+  {
+    id: 30,
+    img: 'photo/30.jpg',
+    title: 'FLL CHALLENGE 2020-2021 ロボット',
+    desc: 'FLL(ファーストレゴリーグ) CHALLENGE 2020-2021に出場したロボット。制限時間内にアタッチメントを付け替えながら、様々なミッションをクリアする大会。この大会では、機体とプログラムの両方を担当した。機体は教育版レゴ マインドストーム EV3 基本セット・拡張セットを使用した。',
+    info: [
+      '制作時間: 6ヶ月',
+      '制作時期: 2020年7~12月',
+      '制作人数: 5人',
+      '使用ソフト: LEGO MINDSTORMS'
+    ]
+  },
+  {
+    id: 31,
+    img: 'photo/31.jpg',
+    title: 'ロボカップジュニア全国大会 ロボット',
+    desc: 'ロボカップジュニアの全国大会に出場したロボット。出場したのは災害時を想定したレスキュー部門で、瓦礫や坂などの障害物の先にいる人を救助する。この大会では機体の全てとプログラムの一部を担当した。機体は教育版レゴ マインドストーム EV3 基本セット・拡張セットに加え、フェルト、プラスチック板などを使用した。',
+    info: [
+      '制作時間: 10ヶ月',
+      '制作時期: 2021年7月~2022年4月',
+      '制作人数: 2人 (機体制作は1人)',
+      '使用ソフト: LEGO MINDSTORMS'
+    ]
+  },
+  {
+    id: 32,
+    img: 'photo/32.jpg',
+    title: '手の赤み除去を取る',
+    desc: '画像処理プログラミングの応用例として、手の赤みを除去する処理を実装しました。詳細な解説資料は<a href="photo/手の赤みを取る.pdf" target="_blank" style="color:#007bff;text-decoration:underline;font-weight:bold;">こちら（PDF）</a>でご覧いただけます。',
+    info: [
+      '完成日: 2024/7',
+      '制作期間: 1時間',
+      '作成人数: 1人',
+      '使用言語: C++',
+      '使用ソフト: Xcode',
+    ]
+  },
+  {
+      id: 33,
+      img: 'photo/33.jpg',
+      title: '宝石の検出',
+      desc: '画像処理プログラミングの応用例として、宝石を検出する処理を実装しました。詳細な解説資料は<a href="photo/宝石の検出.pdf" target="_blank" style="color:#007bff;text-decoration:underline;font-weight:bold;">こちら（PDF）</a>でご覧いただけます。',
+      info: [
+      '完成日: 2024/7',
+      '制作期間: 3時間',
+      '作成人数: 1人',
+      '使用言語: C++',
+      '使用ソフト: Xcode',
+    ]
+  },
+  {
+    id: 34,
+    img: 'photo/34.jpg',
+    title: '魚の検出',
+    desc: '画像処理プログラミングの応用例として、魚を検出する処理を実装しました。詳細な解説資料は<a href="photo/魚の検出.pdf" target="_blank" style="color:#007bff;text-decoration:underline;font-weight:bold;">こちら（PDF）</a>でご覧いただけます。',
+    info: [
+      '完成日: 2024/7',
+      '制作期間: 6時間',
+      '作成人数: 1人',
+      '使用言語: C++',
+        '使用ソフト: Xcode',
+        ]
+    }
 ];
 
 // モーダル表示処理
 function showPortfolioModal(work) {
   document.getElementById('portfolio-modal-img').src = work.img;
   document.getElementById('portfolio-modal-title').innerText = work.title;
-  document.getElementById('portfolio-modal-desc').innerText = work.desc;
+  //document.getElementById('portfolio-modal-desc').innerText = work.desc;
+  document.getElementById('portfolio-modal-desc').innerHTML = work.desc;
   document.getElementById('portfolio-modal-info').innerHTML = work.info.map(i => `<li>${i}</li>`).join('');
   document.getElementById('portfolio-modal').style.display = 'flex';
   document.body.style.overflow = 'hidden'; // 背景スクロール禁止
@@ -446,6 +622,24 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
 document.querySelector('.portfolio-modal-close').addEventListener('click', hidePortfolioModal);
 document.getElementById('portfolio-modal').addEventListener('click', function(e) {
   if (e.target === this) hidePortfolioModal();
+});
+
+// ポートフォリオ分類ボタンの表示切り替え
+const categoryBtns = document.querySelectorAll('.category-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+categoryBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    categoryBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.getAttribute('data-category');
+    portfolioItems.forEach(item => {
+      if (cat === 'all' || item.getAttribute('data-category') === cat) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
 });
 </script>
 </body>
