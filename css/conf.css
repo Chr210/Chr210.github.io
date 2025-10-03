@@ -204,13 +204,23 @@ p, li {
     border-radius: 24px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.08);
     padding: 32px 48px;
+    width: 100%;
     max-width: 900px;
+    min-width: 220px;
     margin: 24px auto 0 auto;
     text-align: left;
-    position: static; /* position: absoluteを解除 */
+    position: static;
     top: auto;
     left: auto;
     transform: none;
+}
+
+@media (max-width: 600px) {
+    .section-box {
+        max-width: 98vw;
+        min-width: unset;
+        padding: 16px 4vw;
+    }
 }
 
 .section-box:hover {
@@ -396,13 +406,21 @@ table td:last-child a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 400px;
-    min-height: 480px;
+    width: 100%;
+    max-width: 400px; /* PC時の最大幅 */
+    min-width: 220px; /* スマホ時の最小幅 */
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .gallery_box {
+        max-width: 98vw; /* スマホ時は画面幅いっぱい */
+        min-width: unset;
+    }
 }
 
 .gallery_box img {
@@ -503,13 +521,17 @@ table td:last-child a:hover {
     border-radius: 24px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.08);
     padding: 32px 48px;
-    max-width: 900px;
-    margin: 24px auto 0 auto; /* 上の余白をmarginで調整 */
+    margin: 24px auto 0 auto;
     text-align: left;
-    position: static; /* position: absoluteを解除 */
-    top: auto;
-    left: auto;
-    transform: none;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+@media (max-width: 1300px) {
+    .news-section {
+        max-width: 98vw;
+        padding: 16px 2vw;
+    }
 }
 .news-section h2 {
     font-size: 2.2em;
@@ -583,7 +605,8 @@ table td:last-child a:hover {
   text-decoration: none;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-  width: 320px;
+  width: 80%;
+  max-width: 320px;
   height: 200px;
 }
 .skill-link-card:hover {
@@ -811,13 +834,12 @@ table td:last-child a:hover {
   text-shadow: 0 2px 12px #000, 0 0 8px #007bff;
   background: rgba(0,0,0,0.32);
   padding: 12px 32px;
-  border
 }
 
 /* 受賞歴の受賞内容の文字サイズアップ */
 .section-box ul li {
   font-size: 1.4em;
-  font-weight: 500px;
+  font-weight: 500;
 }
 .section-box ul li .award-date {
   font-size: 1.1em;
@@ -825,6 +847,39 @@ table td:last-child a:hover {
 }
 .section-box ul li br + text, .section-box ul li br + span {
   font-size: 1.4em;
+}
+
+/* ポートフォリオ分類ボタン用スタイル */
+.portfolio-category-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.category-btn {
+  font-size: 1.3em;
+  padding: 18px 36px;
+  border-radius: 12px;
+  background: #888;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-bottom: 8px;
+}
+.category-btn.active {
+  background: rgba(0,0,0,0.38);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  border: 2px solid #fff;
+}
+.category-btn:hover {
+  background: #555;
+  transform: scale(1.08);
 }
 
 @keyframes gradient-move {
