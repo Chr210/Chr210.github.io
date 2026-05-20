@@ -10,16 +10,17 @@
     <nav class="menu-bar">
         <a href="index.html">トップ</a>
         <a href="profile.html">プロフィール</a>
-        <a href="hobby-skill.html" class="menu-hobby-skill active-menu">趣味<br>スキル</a>
+        <a href="hobby-skill.html" class="menu-hobby-skill active-menu">スキル</a>
         <a href="portfolio.html">ポートフォリオ</a>
     </nav>
   <div class="news-section">
     <h2>受賞歴</h2>
     <ul>
+        <li><span class="award-date">2026年4月</span><br>RoboCup2026　Rescue Simulation League　1st Place</li>
+        <li><span class="award-date">2026年3月</span><br>第三回フィッシングサイト撲滅チャレンジカップ　団体部門優勝</li><li>第三回フィッシングサイト撲滅チャレンジカップ　個人部門優勝</li><li>第三回フィッシングサイト撲滅チャレンジカップ　新人部門優勝</li>
         <li><span class="award-date">2025年8月</span><br>愛知県警察サイバーポリスチャレンジ（CTF）　優勝</li>
-        <li><span class="award-date">2025年7月</span><br>RoboCup世界大会　レスキューシミュレーションリーグ　準優勝</li>
-        <li><span class="award-date">2025年6月</span><br>SCAM WEBSITE DISCOVER CHALLENGE　優勝（愛知県警察本部生活安全部サイバー局長賞　受賞）</li>
-        <li><span class="award-date">2025年5月</span><br>RoboCup JapanOpen　レスキューシミュレーションリーグ　計測自動制御学会賞　受賞</li>
+        <li><span class="award-date">2025年6月</span><br>SCAM WEBSITE DISCOVER CHALLENGE　優勝</li><li>（愛知県警察本部生活安全部サイバー局長賞　受賞）</li>
+        <li><span class="award-date">2025年5月</span><br>RoboCup JapanOpen　レスキューシミュレーションリーグ</li><li>計測自動制御学会賞　受賞</li>
         <li><span class="award-date">2024年12月</span><br>土木学会　安全問題討論会’24　デザイン部門　入選</li>
         <li><span class="award-date">2024年3月</span><br>愛知県警察よりサイバー犯罪被害の防止に貢献したことに関する感謝状</li>
         <li><span class="award-date">2023年12月</span><br>土木学会　安全問題討論会’23　デザイン部門　入選</li>
@@ -35,7 +36,7 @@
     </ul>
   </div>
   <div class="back-hobby-btn-wrapper" style="text-align:center; margin-bottom:8px;">
-  <a href="hobby-skill.html" class="back-hobby-btn" style="display:inline-block;margin-bottom:12px;padding:12px 32px;background:#007bff;color:#fff;border-radius:8px;text-decoration:none;font-size:1.2em;box-shadow:0 2px 8px rgba(0,0,0,0.12);transition:background 0.2s;">趣味・スキルページへ戻る</a>
+    <a href="hobby-skill.html" class="back-hobby-btn" style="display:inline-block;margin-bottom:12px;padding:12px 32px;background:#007bff;color:#fff;border-radius:8px;text-decoration:none;font-size:1.2em;box-shadow:0 2px 8px rgba(0,0,0,0.12);transition:background 0.2s;">スキルページへ戻る</a>
 </div>
   <footer>Copyright © Tomioka Chiharu All rights reserved.</footer>
 </div>
@@ -63,6 +64,48 @@
             });
         });
     });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const imageMap = {
+        '202312': 'award_phpto/202312.png',
+        '202403': 'award_phpto/202403.jpeg',
+        '202412': 'award_phpto/202412.jpeg',
+        '202505': 'award_phpto/202505.jpeg',
+        '202506': 'award_phpto/202506.JPG',
+        '202508': 'award_phpto/202508.jpeg',
+        '202603': 'award_phpto/202603.jpeg',
+        '202604': 'award_phpto/202604.jpeg'
+    };
+
+    document.querySelectorAll('.news-section ul li').forEach(li => {
+        const span = li.querySelector('.award-date');
+        if (!span) return;
+        const m = span.textContent.match(/(\d{4})年\s*(\d{1,2})月/);
+        if (!m) return;
+        const yyyy = m[1];
+        let mm = m[2].toString();
+        if (mm.length === 1) mm = '0' + mm;
+        const key = yyyy + mm;
+        const src = imageMap[key];
+        if (!src) return;
+
+                const img = document.createElement('img');
+                img.className = 'award-photo';
+                img.src = src;
+                img.alt = span.textContent + 'の写真';
+                // 同じ年月の続きの行（award-date を持たない li）がある場合は
+                // そのブロックの最後の li の下に画像を配置する
+                let targetLi = li;
+                let next = li.nextElementSibling;
+                while (next && next.tagName === 'LI' && !next.querySelector('.award-date')) {
+                    targetLi = next;
+                    next = next.nextElementSibling;
+                }
+                targetLi.appendChild(img);
+    });
+});
 </script>
 
 </body>
